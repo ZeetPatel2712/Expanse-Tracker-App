@@ -1,0 +1,73 @@
+:root {
+     // primary color
+     --primary-cl-100: #6366f1;
+     --primary-cl-200: #4f46e5;
+     --primary-cl-300: #4338ca;
+     --primary-cl-400: #3730a3;
+     --primary-cl-500: #312e81;
+
+     // status color
+     --danger-cl: #ef4444;
+     --danger-hover-cl: #b91c1c;
+     --info-cl: #3b82f6;
+     --info-hover-cl: #1d4ed8;
+     --warning-cl: #f59e0b;
+     --warning-hover-cl: #ca8a04;
+     --success-cl: #22c55e;
+     --success-hover-cl: #15803d;
+
+     //  neutral colors
+     --neutral-clr-100: #525252;
+     --neutral-clr-200: #404040;
+     --neutral-clr-300: #262626;
+     --neutral-clr-400: #171717;
+     --neutral-clr-500: #0a0a0a;
+
+     // title sizes
+     --h1-title: 6.2rem;
+     --h2-title: 4.8rem;
+     --h3-title: 3.6rem;
+     --h4-title: 2.8rem;
+
+     // text sizes
+     --text-sm: 1.4rem;
+     --text-md: 1.6rem;
+     --text-lg: 2rem;
+     --text-xl: 2.4rem;
+
+     //  spacing
+     --sp-1: 0.4rem;
+     --sp-2: 0.8rem;
+     --sp-3: 1.2rem;
+     --sp-4: 1.6rem;
+     --sp-5: 2rem;
+     --sp-6: 2.4rem;
+     --sp-7: 2.8rem;
+     --sp-8: 3.2rem;
+     --sp-9: 3.6rem;
+     --sp-10: 4rem;
+
+     // element height
+     --el-h-sm: 3.6rem;
+     --el-h-md: 4.2rem;
+     --el-h-lg: 4.8rem;
+
+     // border radius
+     --radius-sm: 0.8rem;
+     --radius-md: 1.2rem;
+     --radius-lg: 1.4rem;
+     --radius-xl: 2.4rem;
+     --radius-xxl: 3.2rem;
+     --radius-pill: 10rem;
+     --radius-circle: 100%;
+
+     // transitions
+     --ts-fast: 0.2s ease-in-out;
+     --ts-normal: 0.4s ease-in-out;
+     --ts-slow: 0.6s ease-in-out;
+
+     // box shadow
+     --shadow-sm: rgb(149 157 165 / 20%) 0 0.8rem 2.4rem;
+     --shadow-md: rgb(100 100 111 / 20%) 0 0.7rem 2.9rem 0;
+     --shadow-lg: rgb(0 0 0 / 16%) 0 1rem 3.6rem 0, rgb(0 0 0 / 6%) 0 0 0 0.1rem;
+}

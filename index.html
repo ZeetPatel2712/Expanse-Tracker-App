@@ -9,7 +9,175 @@
           <link href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💵</text></svg>" rel="icon" />
      </head>
      <body>
-          <div id="app"></div>
-          <script type="module" src="/src/main.ts"></script>
+          <!-- app code start -->
+          <main class="expanse-app">
+               <!-- expanse form start -->
+               <section class="expanse-app-form">
+                    <!-- page title start -->
+                    <div class="page-title">
+                         <h1>Expanse Tracker App</h1>
+                         <div class="right-sec">
+                              <button type="button" class="btn btn-md" modal-trigger-id="transaction-modal">
+                                   <iconify-icon class="btn-icon" height="20" icon="basil:add-solid" width="20"></iconify-icon>
+                                   Add Transaction
+                              </button>
+                         </div>
+                    </div>
+                    <!-- page title end -->
+
+                    <div class="expanse-form">
+                         <!-- expanse form start -->
+                         <form method="post">
+                              <!-- total amount -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-field">
+                                        <iconify-icon icon="fluent:money-16-regular"></iconify-icon>
+                                        Total Amount
+                                   </label>
+                                   <input id="amount-field" type="number" name="amount" />
+                              </div>
+
+                              <!-- amount type -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-type">
+                                        <iconify-icon icon="fluent:form-new-24-regular"></iconify-icon>
+                                        Amount Type
+                                   </label>
+                                   <select id="amount-type" name="amount-type">
+                                        <option value="expense">Expense</option>
+                                        <option value="income">Income</option>
+                                        <option value="transfer">Transfer</option>
+                                   </select>
+                              </div>
+
+                              <!-- amount category -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-category">
+                                        <iconify-icon icon="mdi:category-outline"></iconify-icon>
+                                        Amount Category
+                                   </label>
+                                   <select id="amount-category" name="category">
+                                        <option value="food">Food</option>
+                                        <option value="clothing">Clothing</option>
+                                        <option value="entertainment">Entertainment</option>
+                                   </select>
+                                   <button type="button" class="add-new-category"><iconify-icon icon="tabler:circle-plus"></iconify-icon> New Category</button>
+                              </div>
+
+                              <!-- description -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-description">
+                                        <iconify-icon icon="fluent:text-description-24-regular"></iconify-icon>
+                                        Description
+                                   </label>
+                                   <textarea id="amount-description" cols="30" name="description" rows="5"></textarea>
+                              </div>
+
+                              <!-- amount date -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-date">
+                                        <iconify-icon icon="fluent:calendar-24-regular"></iconify-icon>
+                                        Amount Added Date
+                                   </label>
+                                   <input id="amount-date" type="date" name="date" />
+                              </div>
+
+                              <!-- amount time -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-time">
+                                        <iconify-icon icon="fluent:clock-24-regular"></iconify-icon>
+                                        Amount Added Time
+                                   </label>
+                                   <input id="amount-time" type="time" name="time" />
+                              </div>
+
+                              <!-- file attach -->
+                              <div class="form-group">
+                                   <label class="form-label" for="amount-file">
+                                        <iconify-icon icon="fluent:attach-24-regular"></iconify-icon>
+                                        Attach File
+                                   </label>
+                                   <input id="amount-file" type="file" name="file" />
+                              </div>
+
+                              <!-- submit button -->
+                              <button type="submit">Submit</button>
+                         </form>
+                         <!-- expanse form end -->
+                    </div>
+               </section>
+               <!-- expanse form end -->
+
+               <!-- expanse app data start -->
+               <section class="expanse-app-data">
+                    <!-- filter and options start -->
+                    <div class="data-filters-and-options">
+                         <!-- data search -->
+                         <div class="data-search">
+                              <!-- search input -->
+                              <iconify-icon icon="ic:twotone-search"></iconify-icon>
+                              <input id="app-data-search" type="text" name="search" placeholder="Search here..." />
+                              <span>Search By</span>
+                              <select id="search-by" name="search-by">
+                                   <option value="amount">Amount</option>
+                                   <option value="category">Category</option>
+                                   <option value="description">Description</option>
+                              </select>
+                         </div>
+
+                         <!-- data short -->
+                         <div class="date-short">
+                              <select id="short-by" name="short-by">
+                                   <option value="a-to-z">A To Z</option>
+                                   <option value="date-time">Date & Time</option>
+                              </select>
+                         </div>
+                    </div>
+                    <!-- filter and options end -->
+
+                    <!-- data table start -->
+                    <div class="data-table">
+                         <table>
+                              <thead>
+                                   <tr>
+                                        <th>Amount</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                   </tr>
+                              </thead>
+                              <tbody>
+                                   <tr>
+                                        <td>1000</td>
+                                        <td>Food</td>
+                                        <td>Buy rice</td>
+                                        <td>12/12/2022</td>
+                                        <td>12:00</td>
+                                        <td>-</td>
+                                        <td>
+                                             <button type="button" class="btn btn-info">
+                                                  <iconify-icon class="btn-icon" icon="ic:baseline-edit"></iconify-icon>
+                                                  Edit
+                                             </button>
+                                             <button type="button" class="btn btn-danger">
+                                                  <iconify-icon class="btn-icon" icon="tabler:trash"></iconify-icon>
+                                                  Delete
+                                             </button>
+                                        </td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
+                    <!-- data table end -->
+               </section>
+               <!-- expanse app data end -->
+          </main>
+          <!-- app code end -->
+
+          <!-- script files -->
+          <script type="module" src="/src/scripts/main.ts"></script>
      </body>
 </html>

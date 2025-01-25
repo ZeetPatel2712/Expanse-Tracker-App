@@ -1,0 +1,134 @@
+:root {
+     --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+     --font-family-mono: 'Fira Code', 'Courier New', monospace;
+     --font-size-base: 1.6rem;
+     --line-height-base: 1.5;
+     --border-radius: 0.4rem;
+     --spacing-unit: 1rem;
+     --transition-base: 0.2s ease-in-out;
+     --dark-cl: #000;
+     --light-cl: #fff;
+     --gray-cl: #ddd;
+
+     font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+
+html {
+     scroll-behavior: smooth;
+     text-rendering: optimizespeed;
+     text-size-adjust: 100%;
+}
+
+body {
+     background-color: var(--dark-cl);
+     color: var(--light-cl);
+     font-family: var(--font-family-sans);
+     font-size: var(--font-size-base);
+     line-height: var(--line-height-base);
+     margin: 0;
+     min-height: 100vh;
+     overscroll-behavior: none;
+     padding: 0;
+     text-rendering: optimizelegibility;
+}
+
+a {
+     color: inherit;
+     cursor: pointer;
+     text-decoration: none;
+     transition: color var(--transition-base);
+}
+
+button,
+input,
+textarea,
+select {
+     appearance: none;
+     background: none;
+     border: none;
+     color: var(--light-cl);
+     font: inherit;
+     margin: 0;
+     outline: none;
+     padding: 0;
+     resize: none;
+}
+
+option {
+     color: var(--dark-cl);
+}
+
+img,
+svg {
+     display: block;
+     height: auto;
+     max-width: 100%;
+}
+
+ul,
+ol {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+}
+
+table {
+     border-collapse: collapse;
+     width: 100%;
+}
+
+code,
+pre {
+     font-family: var(--font-family-mono);
+     font-size: 1.4rem;
+}
+
+blockquote {
+     margin: 0;
+     padding: 0;
+}
+
+hr {
+     border: none;
+     border-top: 0.1rem solid var(--gray-cl);
+     margin: var(--spacing-unit) 0;
+}
+
+button {
+     cursor: pointer;
+}
+
+fieldset {
+     border: 0;
+}
+
+strong {
+     font-weight: bold;
+}
+
+::selection {
+     background-color: #05f;
+     color: var(--light-cl);
+}
+
+[hidden] {
+     display: none !important;
+}
+
+[data-disabled],
+[disabled] {
+     opacity: 0.6;
+     pointer-events: none;
+}
+
+::-webkit-scrollbar {
+     display: none;
+}

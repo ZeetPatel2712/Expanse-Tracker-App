@@ -1,0 +1,11 @@
+.expanse-app {
+     padding: 3.2rem;
+
+     .page-title {
+          font-size: var(--h4-title);
+
+          &:has(.right-sec) {
+               @include flex(flex, space-between, center, 1.6rem);
+          }
+     }
+}

@@ -1,0 +1,94 @@
+.btn {
+     --btn-fs: var(--text-sm);
+     --btn-cl: var(--primary-cl-200);
+     --btn-hover-cl: var(--primary-cl-300);
+     --btn-text-cl: var(--light-cl);
+     --btn-height: var(--el-h-sm);
+     --btn-spacing: var(--sp-4);
+     --btn-radius: var(--radius-sm);
+
+     background: var(--btn-cl);
+     border-radius: var(--btn-radius);
+     color: var(--btn-text-cl);
+     cursor: pointer;
+     display: inline-block;
+     font-size: var(--btn-fs);
+     font-weight: 500;
+     height: var(--btn-height);
+     overflow: hidden;
+     padding: 0 var(--btn-spacing);
+     position: relative;
+     transition: var(--ts-fast);
+
+     &:hover {
+          background: var(--btn-hover-cl);
+          box-shadow: var(--shadow-md);
+     }
+
+     &:active {
+          background: var(--btn-cl);
+     }
+
+     // button icon
+     &:has(.btn-icon) {
+          @include flex(inline-flex, center, center, 0.6rem);
+
+          .btn-icon {
+               font-size: var(--btn-fs);
+          }
+     }
+
+     // button loader
+     &[loading='true'] {
+          opacity: 0.6;
+          pointer-events: none;
+
+          &::before {
+               background: var(--btn-cl);
+               content: '';
+               inset: 0;
+               position: absolute;
+          }
+
+          .loader-icon {
+               font-size: var(--btn-fs);
+               position: absolute;
+          }
+     }
+
+     // button status variables
+     &.btn-danger {
+          --btn-cl: var(--danger-cl);
+          --btn-hover-cl: var(--danger-hover-cl);
+     }
+
+     &.btn-info {
+          --btn-cl: var(--info-cl);
+          --btn-hover-cl: var(--info-hover-cl);
+     }
+
+     &.btn-warning {
+          --btn-cl: var(--warning-cl);
+          --btn-hover-cl: var(--warning-hover-cl);
+     }
+
+     &.btn-success {
+          --btn-cl: var(--success-cl);
+          --btn-hover-cl: var(--success-hover-cl);
+     }
+
+     // button sizes
+     &.btn-md {
+          --btn-fs: var(--text-md);
+          --btn-height: var(--el-h-md);
+          --btn-spacing: var(--sp-5);
+          --btn-radius: var(--radius-md);
+     }
+
+     &.btn-lg {
+          --btn-fs: var(--text-md);
+          --btn-height: var(--el-h-lg);
+          --btn-spacing: var(--sp-6);
+          --btn-radius: var(--radius-lg);
+     }
+}

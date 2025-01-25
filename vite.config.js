@@ -9,6 +9,13 @@ export default defineConfig({
                fix: true,
           }),
      ],
+     css: {
+          preprocessorOptions: {
+               scss: {
+                    additionalData: `@import "/src/styles/base/mixins.scss";`,
+               },
+          },
+     },
      resolve: {
           alias: {
                '@': path.resolve(__dirname, 'src'),

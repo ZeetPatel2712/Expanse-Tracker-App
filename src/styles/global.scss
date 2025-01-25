@@ -1,0 +1,10 @@
+// base styles
+@import url('./base/fluid.scss');
+@import url('./base/variables.scss');
+@import url('./base/reset.scss');
+
+// ui styles
+@import url('./ui/button.scss');
+
+// pages styles
+@import url('./pages/app.scss');

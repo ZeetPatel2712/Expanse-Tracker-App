@@ -1,0 +1,32 @@
+$default-min-width: 20rem; // Default minimum breakpoint
+$default-max-width: 60rem; // Default maximum breakpoint
+
+/// Function to round a number to a specified number of decimal places
+@function round($value, $precision: 0) {
+     $multiplier: math.pow(10, $precision);
+
+     @return math.div(math.round($value * $multiplier), $multiplier);
+}
+
+/// Function to convert pixels to rem units
+@function px-to-rem($pixels) {
+     $base-font-size: 1rem; // Default browser font size
+
+     @return math.div($pixels, $base-font-size);
+}
+
+/// Function to generate fluid typography or spacing
+/// @param $min-size {Number} Minimum size in px
+/// @param $max-size {Number} Maximum size in px
+/// @param $min-width {Number} Minimum breakpoint in px (default: $default-min-width)
+/// @param $max-width {Number} Maximum breakpoint in px (default: $default-max-width)
+/// @param $unit {String} Unit for scaling (default: vw)
+@function fluid-size($min-size, $max-size, $min-width: $default-min-width, $max-width: $default-max-width, $unit: vw) {
+     $scale-factor: math.div($max-size - $min-size, $max-width - $min-width);
+     $scale-factor-percent: round($scale-factor * 100, 2);
+     $base-size-rem: round(px-to-rem($min-size - $scale-factor * $min-width), 2);
+     $min-size-rem: round(px-to-rem($min-size), 2);
+     $max-size-rem: round(px-to-rem($max-size), 2);
+
+     @return clamp(#{$min-size-rem}rem, #{$scale-factor-percent}#{$unit} + #{$base-size-rem}rem, #{$max-size-rem}rem);
+}
