@@ -2,9 +2,11 @@
 @import url('./base/fluid.scss');
 @import url('./base/variables.scss');
 @import url('./base/reset.scss');
+@import url('./base/animation.scss');
 
 // ui styles
 @import url('./ui/button.scss');
+@import url('./ui/modal.scss');
 
 // pages styles
 @import url('./pages/app.scss');
