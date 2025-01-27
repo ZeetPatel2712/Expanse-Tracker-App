@@ -3,6 +3,11 @@
      "singleQuote": true,
      "tabWidth": 5,
      "trailingComma": "es5",
-     "printWidth": 240,
-     "endOfLine": "auto"
+     "printWidth": 300,
+     "bracketSpacing": true,
+     "jsxBracketSameLine": false,
+     "htmlWhitespaceSensitivity": "css",
+     "arrowParens": "always",
+     "endOfLine": "auto",
+     "proseWrap": "preserve"
 }

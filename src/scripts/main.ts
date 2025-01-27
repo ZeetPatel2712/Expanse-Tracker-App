@@ -1,13 +1,32 @@
 'use strict';
 
-// global style
-import '../styles/global.scss';
+// main style
+import '../styles/main.scss';
 
 // iconify
 import 'iconify-icon';
 
-// button script
-import './ui/button';
+// simplebar
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
-// modal script
+// form
+import './form/validation';
+
+// ui script
+import './ui/input';
+import './ui/button';
 import './ui/modal';
+
+// form validation
+import { validateForm } from './form/validation';
+
+// form submit
+window.addEventListener('DOMContentLoaded', () => {
+     const submitBtn = document.querySelector('#submit-btn');
+
+     submitBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(validateForm() ? 'Form Valid' : 'Form UnValid');
+     });
+});

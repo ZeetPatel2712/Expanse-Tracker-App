@@ -39,6 +39,7 @@
     },
     "dependencies": {
         "iconify-icon": "^2.3.0",
-        "sass": "^1.83.4"
+        "sass": "^1.83.4",
+        "simplebar": "^6.3.0"
     }
 }

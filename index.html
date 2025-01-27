@@ -6,7 +6,7 @@
           <link type="image/svg+xml" href="/vite.svg" rel="icon" />
           <meta content="width=device-width, initial-scale=1.0" name="viewport" />
           <title>Expanse Tracker App</title>
-          <link href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💵</text></svg>" rel="icon" />
+          <link href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-  ze='90'>💵</text></svg>" rel="icon" />
      </head>
      <body>
           <!-- app code start -->
@@ -18,7 +18,7 @@
                          <h1>Expanse Tracker App</h1>
                          <div class="right-sec">
                               <button type="button" class="btn btn-md" modal-trigger-id="transaction-modal">
-                                   <iconify-icon class="btn-icon" height="20" icon="basil:add-solid" width="20"></iconify-icon>
+                                   <iconify-icon class="btn-icon" height="16" icon="fa6-solid:plus" width="16"></iconify-icon>
                                    Add Transaction
                               </button>
                          </div>
@@ -26,88 +26,117 @@
                     <!-- page title end -->
 
                     <!-- transaction modal start -->
-                    <div class="data-modal modal" modal-id="transaction-modal" modal-width="60rem">
+                    <div class="data-modal modal show-modal" modal-id="transaction-modal" modal-width="80rem">
                          <div class="modal-content">
                               <div class="modal-title">
                                    <h2>Transaction Modal</h2>
                               </div>
                               <div class="expanse-form">
                                    <!-- expanse form start -->
-                                   <form method="post">
-                                        <!-- total amount -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-field">
-                                                  <iconify-icon icon="fluent:money-16-regular"></iconify-icon>
-                                                  Total Amount
-                                             </label>
-                                             <input id="amount-field" type="number" name="amount" />
-                                        </div>
+                                   <form id="transaction-form" method="post">
+                                        <div class="row">
+                                             <!-- total amount -->
+                                             <div class="col-lg-3 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label" for="amount-field">
+                                                            <iconify-icon icon="fluent:money-16-regular"></iconify-icon>
+                                                            Total Amount
+                                                       </label>
+                                                       <input id="amount-field" type="text" class="w-100 input-field" name="amount" placeholder="Enter Amount" />
+                                                  </div>
+                                             </div>
 
-                                        <!-- amount type -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-type">
-                                                  <iconify-icon icon="fluent:form-new-24-regular"></iconify-icon>
-                                                  Amount Type
-                                             </label>
-                                             <select id="amount-type" name="amount-type">
-                                                  <option value="expense">Expense</option>
-                                                  <option value="income">Income</option>
-                                                  <option value="transfer">Transfer</option>
-                                             </select>
-                                        </div>
+                                             <!-- amount type -->
+                                             <div class="col-lg-3 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label" for="amount-type">
+                                                            <iconify-icon icon="fluent:form-new-24-regular"></iconify-icon>
+                                                            Amount Type
+                                                       </label>
+                                                       <select id="amount-type" class="input-select w-100" name="amount-type">
+                                                            <option value="">--- Select Type ---</option>
+                                                            <option value="expense">Expense</option>
+                                                            <option value="income">Income</option>
+                                                            <option value="transfer">Transfer</option>
+                                                       </select>
+                                                  </div>
+                                             </div>
 
-                                        <!-- amount category -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-category">
-                                                  <iconify-icon icon="mdi:category-outline"></iconify-icon>
-                                                  Amount Category
-                                             </label>
-                                             <select id="amount-category" name="category">
-                                                  <option value="food">Food</option>
-                                                  <option value="clothing">Clothing</option>
-                                                  <option value="entertainment">Entertainment</option>
-                                             </select>
-                                             <button type="button" class="add-new-category"><iconify-icon icon="tabler:circle-plus"></iconify-icon> New Category</button>
-                                        </div>
+                                             <!-- amount category -->
+                                             <div class="col-lg-6">
+                                                  <div class="amount-categories-wp w-100">
+                                                       <div class="form-group w-100">
+                                                            <label class="form-label" for="amount-category">
+                                                                 <iconify-icon icon="mdi:category-outline"></iconify-icon>
+                                                                 Amount Category
+                                                            </label>
+                                                            <select id="amount-category" class="input-select w-100" name="category">
+                                                                 <option value="">--- Select Category ---</option>
+                                                                 <option value="food">Food</option>
+                                                                 <option value="clothing">Clothing</option>
+                                                                 <option value="entertainment">Entertainment</option>
+                                                            </select>
+                                                       </div>
+                                                       <button type="button" class="add-new-category btn btn-neutral btn-md">
+                                                            <iconify-icon class="btn-icon" height="14" icon="fa6-solid:plus" width="14"></iconify-icon>
+                                                            New Categories
+                                                       </button>
+                                                  </div>
+                                             </div>
 
-                                        <!-- description -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-description">
-                                                  <iconify-icon icon="fluent:text-description-24-regular"></iconify-icon>
-                                                  Description
-                                             </label>
-                                             <textarea id="amount-description" cols="30" name="description" rows="5"></textarea>
-                                        </div>
+                                             <!-- amount date -->
+                                             <div class="col-lg-4 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label" for="amount-date">
+                                                            <iconify-icon icon="fluent:calendar-24-regular"></iconify-icon>
+                                                            Amount Added Date
+                                                       </label>
+                                                       <input id="amount-date" type="date" class="input-field w-100" name="date" />
+                                                  </div>
+                                             </div>
 
-                                        <!-- amount date -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-date">
-                                                  <iconify-icon icon="fluent:calendar-24-regular"></iconify-icon>
-                                                  Amount Added Date
-                                             </label>
-                                             <input id="amount-date" type="date" name="date" />
-                                        </div>
+                                             <!-- amount time -->
+                                             <div class="col-lg-4 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label" for="amount-time">
+                                                            <iconify-icon icon="fluent:clock-24-regular"></iconify-icon>
+                                                            Amount Added Time
+                                                       </label>
+                                                       <input id="amount-time" type="time" class="input-field w-100" name="time" />
+                                                  </div>
+                                             </div>
 
-                                        <!-- amount time -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-time">
-                                                  <iconify-icon icon="fluent:clock-24-regular"></iconify-icon>
-                                                  Amount Added Time
-                                             </label>
-                                             <input id="amount-time" type="time" name="time" />
-                                        </div>
+                                             <!-- file attach -->
+                                             <div class="col-lg-4 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label">
+                                                            <iconify-icon icon="fluent:attach-24-regular"></iconify-icon>
+                                                            Attach File
+                                                       </label>
+                                                       <label class="input-file w-100" for="amount-file">Choose File... </label>
+                                                       <input id="amount-file" type="file" class="input-field w-100" hidden name="file" />
+                                                  </div>
+                                             </div>
 
-                                        <!-- file attach -->
-                                        <div class="form-group">
-                                             <label class="form-label" for="amount-file">
-                                                  <iconify-icon icon="fluent:attach-24-regular"></iconify-icon>
-                                                  Attach File
-                                             </label>
-                                             <input id="amount-file" type="file" name="file" />
-                                        </div>
+                                             <!-- description -->
+                                             <div class="col-lg-12 mb-4">
+                                                  <div class="form-group">
+                                                       <label class="form-label" for="amount-description">
+                                                            <iconify-icon icon="fluent:text-description-24-regular"></iconify-icon>
+                                                            Description
+                                                       </label>
+                                                       <textarea id="amount-description" class="textarea-field w-100" cols="20" name="description" placeholder="Enter Description" rows="5"></textarea>
+                                                  </div>
+                                             </div>
 
-                                        <!-- submit button -->
-                                        <button type="submit">Submit</button>
+                                             <!-- submit button -->
+                                             <div class="col-lg-12 pt-1">
+                                                  <div class="form-btn-wp">
+                                                       <button id="submit-btn" type="submit" class="btn btn-md w-100 flex-1">Submit</button>
+                                                       <button id="clear-btn" type="button" class="btn btn-danger w-100 flex-1 btn-md">Clear</button>
+                                                  </div>
+                                             </div>
+                                        </div>
                                    </form>
                                    <!-- expanse form end -->
                               </div>
@@ -121,14 +150,17 @@
                <!-- expanse app data start -->
                <section class="expanse-app-data">
                     <!-- filter and options start -->
-                    <div class="data-filters-and-options">
+                    <div class="data-filters-and-options mb-5">
                          <!-- data search -->
-                         <div class="data-search">
-                              <!-- search input -->
-                              <iconify-icon icon="ic:twotone-search"></iconify-icon>
-                              <input id="app-data-search" type="text" name="search" placeholder="Search here..." />
-                              <span>Search By</span>
-                              <select id="search-by" name="search-by">
+                         <div class="form-group">
+                              <div class="input-search-wp">
+                                   <input id="app-data-search" type="text" class="input-search" name="search" placeholder="Search here..." />
+                              </div>
+                         </div>
+
+                         <div class="form-group">
+                              <select id="search-by" class="input-select" name="search-by">
+                                   <option disabled selected value="">--- Filter By ---</option>
                                    <option value="amount">Amount</option>
                                    <option value="category">Category</option>
                                    <option value="description">Description</option>
@@ -136,8 +168,9 @@
                          </div>
 
                          <!-- data short -->
-                         <div class="date-short">
-                              <select id="short-by" name="short-by">
+                         <div class="form-group ms-auto">
+                              <select id="short-by" class="input-select" name="short-by">
+                                   <option disabled selected value="">--- Sort By ---</option>
                                    <option value="a-to-z">A To Z</option>
                                    <option value="date-time">Date & Time</option>
                               </select>
@@ -156,9 +189,10 @@
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>File</th>
-                                        <th>Action</th>
+                                        <th width="20%">Action</th>
                                    </tr>
                               </thead>
+
                               <tbody>
                                    <tr>
                                         <td>1000</td>
@@ -168,18 +202,42 @@
                                         <td>12:00</td>
                                         <td>-</td>
                                         <td>
-                                             <button type="button" class="btn btn-info">
-                                                  <iconify-icon class="btn-icon" icon="ic:baseline-edit"></iconify-icon>
-                                                  Edit
-                                             </button>
-                                             <button type="button" class="btn btn-danger">
-                                                  <iconify-icon class="btn-icon" icon="tabler:trash"></iconify-icon>
-                                                  Delete
-                                             </button>
+                                             <div class="action-btn-wp">
+                                                  <button type="button" class="btn btn-info">
+                                                       <iconify-icon class="btn-icon" icon="ic:baseline-edit"></iconify-icon>
+                                                       Edit
+                                                  </button>
+                                                  <button type="button" class="btn btn-danger">
+                                                       <iconify-icon class="btn-icon" icon="tabler:trash"></iconify-icon>
+                                                       Delete
+                                                  </button>
+                                             </div>
                                         </td>
                                    </tr>
                               </tbody>
                          </table>
+                         <div class="data-result">
+                              <ul>
+                                   <li>
+                                        <p>
+                                             <iconify-icon height="20" icon="ph:money" width="20"></iconify-icon>
+                                             Total Income :- <span class="total-income">100</span>
+                                        </p>
+                                   </li>
+                                   <li>
+                                        <p>
+                                             <iconify-icon height="20" icon="ph:money-wavy" width="20"></iconify-icon>
+                                             Total Expanse :- <span class="total-expanse">100</span>
+                                        </p>
+                                   </li>
+                                   <li>
+                                        <p>
+                                             <iconify-icon height="20" icon="mingcute:transfer-line" width="20"></iconify-icon>
+                                             Total Transfer :- <span class="total-transfer">100</span>
+                                        </p>
+                                   </li>
+                              </ul>
+                         </div>
                     </div>
                     <!-- data table end -->
                </section>

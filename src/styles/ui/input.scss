@@ -1,0 +1,94 @@
+.form-group {
+     @include flex(flex, center, flex-start, 0.8rem, column);
+
+     &.error :is(.input-field, .input-select, .textarea-field, .input-file, .input-search) {
+          color: var(--danger-cl);
+          outline-color: var(--danger-cl);
+     }
+
+     &.success :is(.input-field, .input-select, .textarea-field, .input-file, .input-search) {
+          color: var(--success-cl);
+          outline-color: var(--success-cl);
+     }
+}
+
+.form-label {
+     color: var(--light-cl);
+     font-weight: 500;
+
+     @include flex(inline-flex, flex-start, center, 0.8rem);
+}
+
+.textarea-field {
+     min-height: 10rem;
+     padding-top: var(--sp-3) !important;
+}
+
+.input-file {
+     cursor: pointer;
+}
+
+.input-field,
+.input-select,
+.textarea-field,
+.input-file,
+.input-search {
+     --input-sp: var(--sp-4);
+
+     background: var(--neutral-clr-300);
+     border-radius: var(--radius-sm);
+     color: var(--light-cl);
+     font-weight: 500;
+     height: var(--el-h-md);
+     outline: 0.2rem solid transparent;
+     padding: 0 var(--input-sp);
+     transition: var(--ts-fast);
+
+     @include flex(flex, flex-start, center);
+
+     &::placeholder {
+          color: var(--neutral-clr-50);
+     }
+
+     &:hover,
+     &:focus {
+          background: var(--neutral-clr-200);
+     }
+
+     &:focus {
+          outline-color: var(--primary-cl-200);
+     }
+}
+
+.input-select {
+     option {
+          border: unset;
+          color: var(--light-cl);
+     }
+}
+
+.input-search-wp {
+     --icon-left-sp: var(--sp-3);
+
+     border-radius: var(--radius-sm);
+     outline: 0.2rem solid transparent;
+     overflow: hidden;
+     position: relative;
+     transition: var(--ts-fast);
+
+     .input-search-icon {
+          left: var(--icon-left-sp);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+     }
+
+     .input-search {
+          outline-color: transparent;
+          padding-left: calc(var(--input-sp) + (var(--icon-left-sp) + var(--sp-2)));
+     }
+
+     &:has(.input-search:focus) {
+          outline-color: var(--primary-cl-200);
+     }
+}

@@ -6,6 +6,7 @@
      --border-radius: 0.4rem;
      --spacing-unit: 1rem;
      --transition-base: 0.2s ease-in-out;
+     --simple-bar-width: 1rem;
      --dark-cl: #000;
      --light-cl: #fff;
      --gray-cl: #ddd;
@@ -62,6 +63,16 @@ select {
      resize: none;
 }
 
+input[type='date']::-webkit-calendar-picker-indicator,
+input[type='time']::-webkit-calendar-picker-indicator {
+     appearance: none;
+     display: none;
+}
+
+select {
+     cursor: pointer;
+}
+
 option {
      color: var(--dark-cl);
 }
@@ -115,7 +126,7 @@ strong {
 }
 
 ::selection {
-     background-color: #05f;
+     background-color: var(--primary-cl-200);
      color: var(--light-cl);
 }
 
@@ -131,4 +142,23 @@ strong {
 
 ::-webkit-scrollbar {
      display: none;
+}
+
+// simple bar css
+
+.simplebar {
+     .simplebar-track.simplebar-horizontal {
+          height: var(--simple-bar-width);
+     }
+
+     .simplebar-track.simplebar-vertical {
+          right: 0.6rem;
+          width: var(--simple-bar-width);
+     }
+
+     .simplebar-scrollbar {
+          &::before {
+               background: var(--light-cl);
+          }
+     }
 }

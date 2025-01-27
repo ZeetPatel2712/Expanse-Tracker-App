@@ -22,7 +22,6 @@
 
      &:hover {
           background: var(--btn-hover-cl);
-          box-shadow: var(--shadow-md);
      }
 
      &:active {
@@ -56,7 +55,7 @@
           }
      }
 
-     // button status variables
+     // button color variables
      &.btn-danger {
           --btn-cl: var(--danger-cl);
           --btn-hover-cl: var(--danger-hover-cl);
@@ -77,12 +76,16 @@
           --btn-hover-cl: var(--success-hover-cl);
      }
 
+     &.btn-neutral {
+          --btn-cl: var(--neutral-clr-300);
+          --btn-hover-cl: var(--neutral-clr-200);
+     }
+
      // button sizes
      &.btn-md {
           --btn-fs: var(--text-md);
           --btn-height: var(--el-h-md);
-          --btn-spacing: var(--sp-5);
-          --btn-radius: var(--radius-md);
+          --btn-radius: var(--radius-sm);
      }
 
      &.btn-lg {

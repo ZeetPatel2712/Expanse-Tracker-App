@@ -2,10 +2,65 @@
      padding: 3.2rem;
 
      .page-title {
-          font-size: var(--h4-title);
+          font-size: var(--text-xl);
+          margin-bottom: var(--sp-7);
 
           &:has(.right-sec) {
                @include flex(flex, space-between, center, 1.6rem);
+          }
+     }
+
+     .amount-categories-wp {
+          @include flex(inline-flex, flex-start, flex-end, 1.6rem);
+
+          .form-group {
+               flex: 1;
+          }
+     }
+
+     .form-btn-wp {
+          width: 100%;
+
+          @include flex(flex, flex-start, flex-end, 1.6rem);
+     }
+
+     .data-filters-and-options {
+          @include flex(flex, flex-start, center, 1.6rem);
+     }
+
+     .action-btn-wp {
+          @include flex(inline-flex, flex-start, center, 1.6rem);
+     }
+}
+
+.data-result {
+     border: 0.2rem solid var(--neutral-clr-200);
+     border-radius: var(--radius-sm);
+     font-size: var(--text-md);
+     margin-top: var(--sp-6);
+     padding: var(--sp-4) var(--sp-8);
+
+     ul {
+          width: 100%;
+
+          @include flex(flex, space-between, center, 6rem);
+
+          p {
+               font-weight: 600;
+
+               @include flex(inline-flex, flex-start, center, 0.8rem);
+
+               .total-income {
+                    color: var(--success-cl);
+               }
+
+               .total-expanse {
+                    color: var(--danger-cl);
+               }
+
+               .total-transfer {
+                    color: var(--info-cl);
+               }
           }
      }
 }

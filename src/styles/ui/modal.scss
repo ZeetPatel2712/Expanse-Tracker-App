@@ -30,7 +30,7 @@ html:has(.show-modal) {
           .modal-close-btn {
                border-radius: var(--radius-sm);
                display: grid;
-               font-size: var(--text-lg);
+               font-size: var(--text-xl);
                height: var(--el-h-sm);
                place-items: center;
                position: absolute;
@@ -46,7 +46,7 @@ html:has(.show-modal) {
      }
 
      .modal-title {
-          border-bottom: 0.1rem solid var(--neutral-clr-300);
+          border-bottom: 0.1rem solid var(--neutral-clr-200);
           margin-bottom: var(--sp-4);
           padding-bottom: var(--sp-4);
      }

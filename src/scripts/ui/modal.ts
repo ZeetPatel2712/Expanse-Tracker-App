@@ -38,6 +38,12 @@ window.addEventListener('DOMContentLoaded', () => {
                                    modal.classList.remove('show-modal');
                               }
                          });
+
+                         document.addEventListener('keydown', (e) => {
+                              if (e.key === 'Escape') {
+                                   modal.classList.remove('show-modal');
+                              }
+                         });
                     }
                });
           });
