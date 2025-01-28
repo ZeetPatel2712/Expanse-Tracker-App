@@ -48,20 +48,20 @@ a {
      transition: color var(--transition-base);
 }
 
-button,
-input,
-textarea,
-select {
-     appearance: none;
-     background: none;
-     border: none;
-     color: var(--light-cl);
-     font: inherit;
-     margin: 0;
-     outline: none;
-     padding: 0;
-     resize: none;
-}
+// button,
+// input,
+// textarea,
+// select {
+//      appearance: none;
+//      background: none;
+//      border: none;
+//      color: var(--light-cl);
+//      font: inherit;
+//      margin: 0;
+//      outline: none;
+//      padding: 0;
+//      resize: none;
+// }
 
 input[type='date']::-webkit-calendar-picker-indicator,
 input[type='time']::-webkit-calendar-picker-indicator {

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta content="Form validation" name="description" />
+          <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+          <title>Form Validation</title>
+          <style>
+               .error-message {
+                    color: red;
+                    font-size: 12px;
+                    margin-top: 5px;
+               }
+
+               .success-message {
+                    color: green;
+                    font-size: 12px;
+                    margin-top: 5px;
+               }
+          </style>
+     </head>
+
+     <body>
+          <div class="form-wp">
+               <form id="common-form" action="#" method="post" novalidate>
+                    <!-- Text Input -->
+                    <div class="form-group">
+                         <label for="username">Username</label>
+                         <input id="username" type="text" name="username" placeholder="Enter your username" />
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-group">
+                         <label for="password">Password</label>
+                         <input id="password" type="password" name="password" placeholder="Enter your password" />
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                         <label for="confirm-password">Confirm Password</label>
+                         <input id="confirm-password" type="password" name="confirm-password" placeholder="Confirm your password" />
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                         <label for="email">Email</label>
+                         <input id="email" type="email" name="email" placeholder="Enter your email" />
+                    </div>
+
+                    <!-- Number Input -->
+                    <div class="form-group">
+                         <label for="age">Age</label>
+                         <input id="age" type="number" max="100" min="0" name="age" placeholder="Enter your age" />
+                    </div>
+
+                    <!-- Date Input -->
+                    <div class="form-group">
+                         <label for="dob">Date of Birth</label>
+                         <input id="dob" type="date" name="dob" />
+                    </div>
+
+                    <!-- Time Input -->
+                    <div class="form-group">
+                         <label for="time">Preferred Time</label>
+                         <input id="time" type="time" name="time" />
+                    </div>
+
+                    <!-- File Input -->
+                    <div class="form-group">
+                         <label for="profile-pic">Profile Picture</label>
+                         <input id="profile-pic" type="file" accept="image/*" name="profile-pic" />
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-group">
+                         <label>
+                              <input id="agree" type="checkbox" name="agree" />
+                              I agree to the terms and conditions
+                         </label>
+                    </div>
+
+                    <!-- Radio Buttons -->
+                    <div class="form-group">
+                         <label>Preferred Contact Method</label><br />
+                         <label> <input type="radio" name="radio-group" value="email" /> Email </label><br />
+                         <label> <input type="radio" name="radio-group" value="phone" /> Phone </label>
+                    </div>
+
+                    <!-- Dropdown/Select -->
+                    <div class="form-group">
+                         <label for="gender">Gender</label>
+                         <select id="gender" name="gender">
+                              <option value="">Select your gender</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                              <option value="other">Other</option>
+                         </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                         <button type="submit">Submit</button>
+                    </div>
+               </form>
+          </div>
+
+          <!-- script files -->
+          <script type="module" defer src="/src/scripts/main.ts"></script>
+          <script>
+               document.addEventListener('DOMContentLoaded', function () {
+                    const form = document.getElementById('common-form');
+
+                    // Helper function to create error or success message
+                    function createMessage(type, message, element) {
+                         const messageElement = document.createElement('div');
+                         messageElement.classList.add(type === 'error' ? 'error-message' : 'success-message');
+                         messageElement.textContent = message;
+                         element.parentNode.appendChild(messageElement);
+                    }
+
+                    // Helper function to remove existing messages
+                    function removeMessages(element) {
+                         const existingMessages = element.parentNode.querySelectorAll('.error-message, .success-message');
+                         existingMessages.forEach((message) => message.remove());
+                    }
+
+                    // Username validation
+                    const usernameInput = document.getElementById('username');
+                    usernameInput.addEventListener('input', function () {
+                         const usernameValue = usernameInput.value;
+                         const usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
+                         removeMessages(usernameInput);
+
+                         if (!usernameValue) {
+                              createMessage('error', 'Username is required.', usernameInput);
+                         } else if (!usernameRegex.test(usernameValue)) {
+                              createMessage('error', 'Username must be 5-15 characters long and can only contain letters, numbers, and underscores.', usernameInput);
+                         } else {
+                              createMessage('success', 'Username is valid.', usernameInput);
+                         }
+                    });
+
+                    // Password validation
+                    const passwordInput = document.getElementById('password');
+                    passwordInput.addEventListener('input', function () {
+                         const passwordValue = passwordInput.value;
+                         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                         removeMessages(passwordInput);
+
+                         if (!passwordValue) {
+                              createMessage('error', 'Password is required.', passwordInput);
+                         } else if (!passwordRegex.test(passwordValue)) {
+                              createMessage('error', 'Password must be at least 8 characters long and contain both letters and numbers.', passwordInput);
+                         } else {
+                              createMessage('success', 'Password is valid.', passwordInput);
+                         }
+                    });
+
+                    // Confirm Password validation
+                    const confirmPasswordInput = document.getElementById('confirm-password');
+                    confirmPasswordInput.addEventListener('input', function () {
+                         const confirmPasswordValue = confirmPasswordInput.value;
+                         const passwordValue = passwordInput.value;
+                         removeMessages(confirmPasswordInput);
+
+                         if (!confirmPasswordValue) {
+                              createMessage('error', 'Please confirm your password.', confirmPasswordInput);
+                         } else if (confirmPasswordValue !== passwordValue) {
+                              createMessage('error', 'Passwords do not match.', confirmPasswordInput);
+                         } else {
+                              createMessage('success', 'Passwords match.', confirmPasswordInput);
+                         }
+                    });
+
+                    // Email validation
+                    const emailInput = document.getElementById('email');
+                    emailInput.addEventListener('input', function () {
+                         const emailValue = emailInput.value;
+                         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                         removeMessages(emailInput);
+
+                         if (!emailValue) {
+                              createMessage('error', 'Email is required.', emailInput);
+                         } else if (!emailRegex.test(emailValue)) {
+                              createMessage('error', 'Please enter a valid email address.', emailInput);
+                         } else {
+                              createMessage('success', 'Email is valid.', emailInput);
+                         }
+                    });
+
+                    // Age validation
+                    const ageInput = document.getElementById('age');
+                    ageInput.addEventListener('input', function () {
+                         const ageValue = ageInput.value;
+                         removeMessages(ageInput);
+
+                         if (!ageValue) {
+                              createMessage('error', 'Age is required.', ageInput);
+                         } else if (ageValue < 18 || ageValue > 100) {
+                              createMessage('error', 'Age must be between 18 and 100.', ageInput);
+                         } else {
+                              createMessage('success', 'Age is valid.', ageInput);
+                         }
+                    });
+
+                    // Date of Birth validation
+                    const dobInput = document.getElementById('dob');
+                    dobInput.addEventListener('input', function () {
+                         const dobValue = dobInput.value;
+                         removeMessages(dobInput);
+
+                         if (!dobValue) {
+                              createMessage('error', 'Date of Birth is required.', dobInput);
+                         } else {
+                              createMessage('success', 'Date of Birth is valid.', dobInput);
+                         }
+                    });
+
+                    // Time validation
+                    const timeInput = document.getElementById('time');
+                    timeInput.addEventListener('input', function () {
+                         const timeValue = timeInput.value;
+                         removeMessages(timeInput);
+
+                         if (!timeValue) {
+                              createMessage('error', 'Preferred Time is required.', timeInput);
+                         } else {
+                              createMessage('success', 'Preferred Time is valid.', timeInput);
+                         }
+                    });
+
+                    // File validation
+                    const fileInput = document.getElementById('profile-pic');
+                    fileInput.addEventListener('change', function () {
+                         const fileValue = fileInput.files[0];
+                         removeMessages(fileInput);
+
+                         if (!fileValue) {
+                              createMessage('error', 'Profile picture is required.', fileInput);
+                         } else {
+                              createMessage('success', 'Profile picture uploaded.', fileInput);
+                         }
+                    });
+
+                    // Gender validation
+                    const genderSelect = document.getElementById('gender');
+                    genderSelect.addEventListener('change', function () {
+                         const genderValue = genderSelect.value;
+                         removeMessages(genderSelect);
+
+                         if (!genderValue) {
+                              createMessage('error', 'Gender is required.', genderSelect);
+                         } else {
+                              createMessage('success', 'Gender is selected.', genderSelect);
+                         }
+                    });
+
+                    // Checkbox validation
+                    const checkboxInput = document.getElementById('agree');
+                    checkboxInput.addEventListener('change', function () {
+                         removeMessages(checkboxInput);
+
+                         if (!checkboxInput.checked) {
+                              createMessage('error', 'You must agree to the terms.', checkboxInput);
+                         } else {
+                              createMessage('success', 'Terms accepted.', checkboxInput);
+                         }
+                    });
+
+                    // Radio button validation
+                    const radioInputs = document.querySelectorAll('input[name="radio-group"]');
+                    radioInputs.forEach((radio) => {
+                         radio.addEventListener('change', function () {
+                              removeMessages(radio);
+                         });
+                    });
+
+                    // Form submission validation
+                    form.addEventListener('submit', function (e) {
+                         e.preventDefault(); // Prevent the form from submitting
+
+                         // Trigger validation on all fields
+                         usernameInput.dispatchEvent(new Event('input'));
+                         passwordInput.dispatchEvent(new Event('input'));
+                         confirmPasswordInput.dispatchEvent(new Event('input'));
+                         emailInput.dispatchEvent(new Event('input'));
+                         ageInput.dispatchEvent(new Event('input'));
+                         dobInput.dispatchEvent(new Event('input'));
+                         timeInput.dispatchEvent(new Event('input'));
+                         fileInput.dispatchEvent(new Event('change'));
+                         genderSelect.dispatchEvent(new Event('change'));
+                         checkboxInput.dispatchEvent(new Event('change'));
+                         radioInputs.forEach((radio) => radio.dispatchEvent(new Event('change')));
+
+                         // Check if there are any errors before submitting
+                         const errors = form.querySelectorAll('.error-message');
+                         if (errors.length === 0) {
+                              // No errors, show form values in console and reset form
+                              const formData = new FormData(form);
+                              const formValues = {};
+                              formData.forEach((value, key) => {
+                                   formValues[key] = value;
+                              });
+
+                              console.log('Form submitted with values:', formValues);
+
+                              // Reset the form and remove all messages
+                              form.reset();
+                              removeMessages(usernameInput);
+                              removeMessages(passwordInput);
+                              removeMessages(confirmPasswordInput);
+                              removeMessages(emailInput);
+                              removeMessages(ageInput);
+                              removeMessages(dobInput);
+                              removeMessages(timeInput);
+                              removeMessages(fileInput);
+                              removeMessages(genderSelect);
+                              removeMessages(checkboxInput);
+                              radioInputs.forEach((radio) => removeMessages(radio));
+
+                              alert('Form submitted successfully and reset.');
+                         } else {
+                              // There are errors, do not submit
+                              alert('Please fix the errors before submitting the form.');
+                         }
+                    });
+               });
+          </script>
+     </body>
+</html>

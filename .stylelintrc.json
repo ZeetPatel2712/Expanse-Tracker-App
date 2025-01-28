@@ -3,7 +3,7 @@
      "plugins": ["stylelint-scss", "stylelint-order"],
      "rules": {
           "unit-disallowed-list": ["px", "em"],
-          "unit-allowed-list": ["rem", "%", "s", "vw", "vh"],
+          "unit-allowed-list": ["rem", "%", "s", "vw", "vh", "svh", "fr"],
           "max-nesting-depth": 4,
           "order/order": [
                "custom-properties",

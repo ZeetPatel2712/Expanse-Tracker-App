@@ -19,14 +19,14 @@ import './ui/button';
 import './ui/modal';
 
 // form validation
-import { validateForm } from './form/validation';
+import './form/validation';
 
 // form submit
-window.addEventListener('DOMContentLoaded', () => {
-     const submitBtn = document.querySelector('#submit-btn');
+// window.addEventListener('DOMContentLoaded', () => {
+//      const submitBtn = document.querySelector('#submit-btn');
 
-     submitBtn?.addEventListener('click', (e) => {
-          e.preventDefault();
-          console.log(validateForm() ? 'Form Valid' : 'Form UnValid');
-     });
-});
+//      submitBtn?.addEventListener('click', (e) => {
+//           e.preventDefault();
+//           console.log(validateForm() ? 'Form Valid' : 'Form UnValid');
+//      });
+// });
